@@ -1,0 +1,208 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.container {
+  padding: $padding-lg;
+
+  .credit-detail-card {
+    max-width: $width-xl;
+    margin: $margin-lg auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    border-radius: $border-radius-xl;
+
+    mat-card-header {
+      background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+      color: white;
+      margin: 0;
+      padding: $padding-lg;
+      border-radius: $border-radius-lg $border-radius-lg 0 0;
+
+      mat-card-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.5rem;
+        font-weight: 500;
+
+        mat-icon {
+          font-size: 1.8rem;
+          width: 1.8rem;
+          height: 1.8rem;
+        }
+      }
+
+      mat-card-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1rem;
+        margin-top: 8px;
+      }
+    }
+
+    .credit-info-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 32px;
+      padding: 20px;
+      margin-bottom: 24px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        .vertical-divider {
+          display: none;
+        }
+      }
+    }
+
+    .info-section {
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #1976d2;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 16px;
+        border-bottom: 2px solid #e3f2fd;
+        padding-bottom: 8px;
+
+        mat-icon {
+          font-size: 1.4rem;
+          width: 1.4rem;
+          height: 1.4rem;
+        }
+      }
+
+      .info-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid #f5f5f5;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &.highlight {
+          background: linear-gradient(90deg, #e8f5e8 0%, #f0f8f0 100%);
+          margin: 0 -16px;
+          padding: 12px 16px;
+          border-radius: 8px;
+          border: 1px solid #c8e6c9;
+        }
+
+        label {
+          font-weight: 500;
+          color: #666;
+          flex: 1;
+        }
+
+        .value {
+          font-weight: 600;
+          color: #333;
+
+          &.currency-highlight {
+            color: #2e7d32;
+            font-size: 1.1rem;
+          }
+
+          &.deduction {
+            color: #d32f2f;
+          }
+        }
+
+        mat-chip-set {
+          mat-chip {
+            font-weight: 500;
+
+            mat-icon {
+              font-size: 1rem;
+              width: 1rem;
+              height: 1rem;
+              margin-right: 4px;
+            }
+          }
+        }
+      }
+    }
+
+    .vertical-divider {
+      height: auto;
+      align-self: stretch;
+    }
+
+    .horizontal-divider {
+      margin: 24px 0;
+    }
+
+    .summary-section {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #1976d2;
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #1976d2;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 16px;
+
+        mat-icon {
+          font-size: 1.4rem;
+          width: 1.4rem;
+          height: 1.4rem;
+        }
+      }
+
+      .calculation-formula {
+        .formula-text {
+          font-size: 1.1rem;
+          color: #555;
+          line-height: 1.5;
+
+          strong {
+            color: #2e7d32;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+  .button-container {
+    float: right;
+    margin-top: $margin-lg;
+  }
+}
+
+
+.credit-detail-card {
+  animation: slideInUp 0.4s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.info-item:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+mat-card-actions button:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}

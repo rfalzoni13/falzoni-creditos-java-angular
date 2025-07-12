@@ -1,0 +1,153 @@
+@use './variables' as *;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin card-shadow {
+  box-shadow: $shadow-medium;
+  border-radius: $border-radius-md;
+  background: $background-primary;
+  padding: $padding-md;
+}
+
+@mixin button-style($bg-color: $primary-color, $text-color: #fff) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius-sm;
+  padding: $padding-sm $padding-md;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+@mixin container-centered {
+  max-width: 600px;
+  margin: $margin-md auto;
+  padding: $padding-lg;
+}
+
+@mixin container-full-width {
+  width: 100%;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin card-style {
+  @include card-shadow;
+  background: $background-primary;
+  border-radius: $border-radius-md;
+  padding: $padding-lg;
+  margin-bottom: $margin-md;
+}
+
+@mixin form-container {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-md;
+}
+
+@mixin form-field {
+  width: 100%;
+  margin-bottom: $margin-md;
+}
+
+@mixin font-style($size: $font-size-md, $weight: $font-weight-normal, $color: $text-primary) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin title-style {
+  @include font-style($font-size-xl, $font-weight-semibold, $text-primary);
+}
+
+@mixin subtitle-style {
+  @include font-style($font-size-md, $font-weight-normal, $text-secondary);
+}
+
+@mixin elevation($level: 1) {
+  @if $level == 1 {
+    box-shadow: $shadow-light;
+  } @else if $level == 8 {
+    box-shadow: $shadow-strong;
+  } @else {
+    box-shadow: $shadow-medium;
+  }
+}
+
+@mixin table-header-style {
+  background-color: $background-light;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  border-bottom: 2px solid $border-color;
+}
+
+@mixin table-striped {
+  &:nth-child(even) {
+    background-color: $background-light;
+  }
+}
+
+@mixin table-row-hover {
+  &:hover {
+    background-color: rgba($primary-color, 0.05);
+  }
+}
+
+@mixin table-cell-style {
+  padding: $padding-sm;
+  border-bottom: 1px solid $border-light;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+}

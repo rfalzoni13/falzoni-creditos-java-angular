@@ -1,0 +1,60 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.container {
+  @include container-centered;
+}
+
+.search-card {
+  @include card-style;
+  max-width: $width-xl;
+  width: $width-full;
+}
+
+.search-form {
+  @include form-container;
+}
+
+.full-width {
+  @include form-field;
+  margin-bottom: 0;
+}
+
+.button-container {
+  @include flex-row;
+  gap: $gap-md;
+  justify-content: flex-end;
+  margin-top: $margin-lg;
+}
+
+mat-card-header {
+  margin-bottom: $margin-xl;
+}
+
+mat-card-title {
+  @include title-style;
+}
+
+mat-card-subtitle {
+  @include subtitle-style;
+  margin-top: $margin-sm;
+}
+
+@include respond-to(sm) {
+  .container {
+    padding: $padding-sm;
+  }
+  
+  .search-card {
+    padding: $padding-lg;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    gap: $gap-sm;
+  }
+  
+  .button-container button {
+    width: $width-full;
+  }
+}

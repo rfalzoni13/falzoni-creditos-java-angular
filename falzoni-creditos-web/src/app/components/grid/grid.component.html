@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="grid-container">
+    <h2>Créditos</h2>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="creditos" class="full-width-table">
+
+
+        <ng-container matColumnDef="numeroCredito">
+          <th mat-header-cell *matHeaderCellDef>Número de Crédito</th>
+          <td mat-cell *matCellDef="let element">{{ element.numeroCredito }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="numeroNfse">
+          <th mat-header-cell *matHeaderCellDef>Número da NFSe</th>
+          <td mat-cell *matCellDef="let element">{{ element.numeroNfse }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="dataConstituicao">
+          <th mat-header-cell *matHeaderCellDef>Data Constituição</th>
+          <td mat-cell *matCellDef="let element">{{ formatDate(element.dataConstituicao) }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="valorIssqn">
+          <th mat-header-cell *matHeaderCellDef>Valor ISSQN</th>
+          <td mat-cell *matCellDef="let element" class="currency-cell">{{ formatCurrency(element.valorIssqn) }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="tipoCredito">
+          <th mat-header-cell *matHeaderCellDef>Tipo de Crédito</th>
+          <td mat-cell *matCellDef="let element">{{ element.tipoCredito }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="simplesNacional">
+          <th mat-header-cell *matHeaderCellDef>Simples Nacional</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon [class.text-success]="element.simplesNacional" [class.text-danger]="!element.simplesNacional">
+              {{ element.simplesNacional ? 'check_circle' : 'cancel' }}
+            </mat-icon>
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="aliquota">
+          <th mat-header-cell *matHeaderCellDef>Alíquota</th>
+          <td mat-cell *matCellDef="let element" class="percentage-cell">{{ formatPercentage(element.aliquota) }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="valorFaturado">
+          <th mat-header-cell *matHeaderCellDef>Valor Faturado</th>
+          <td mat-cell *matCellDef="let element" class="currency-cell">{{ formatCurrency(element.valorFaturado) }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="valorDeducao">
+          <th mat-header-cell *matHeaderCellDef>Valor Dedução</th>
+          <td mat-cell *matCellDef="let element" class="currency-cell">{{ formatCurrency(element.valorDeducao) }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="baseCalculo">
+          <th mat-header-cell *matHeaderCellDef>Base de Cálculo</th>
+          <td mat-cell *matCellDef="let element" class="currency-cell">{{ formatCurrency(element.baseCalculo) }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="button" (click)="onBack()">
+        Voltar
+      </button>
+    </div>
+  </div>
+</div>

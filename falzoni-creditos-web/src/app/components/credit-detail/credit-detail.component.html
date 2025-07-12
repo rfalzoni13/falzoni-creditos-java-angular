@@ -1,0 +1,109 @@
+<div class="container" *ngIf="credito">
+  <mat-card class="credit-detail-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>credit_card</mat-icon>
+        Detalhes do Crédito
+      </mat-card-title>
+      <mat-card-subtitle>Número: {{ credito.numeroCredito }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="credit-info-grid">
+        <div class="info-section">
+          <h3 class="section-title">
+            <mat-icon>info</mat-icon>
+            Informações Básicas
+          </h3>
+
+          <div class="info-item">
+            <label>Número do Crédito:</label>
+            <span class="value">{{ credito.numeroCredito }}</span>
+          </div>
+
+          <div class="info-item">
+            <label>Número NFSE:</label>
+            <span class="value">{{ credito.numeroNfse }}</span>
+          </div>
+
+          <div class="info-item">
+            <label>Data de Constituição:</label>
+            <span class="value">{{ formatDate(credito.dataConstituicao) }}</span>
+          </div>
+
+          <div class="info-item">
+            <label>Tipo de Crédito:</label>
+            <span class="value">{{ credito.tipoCredito }}</span>
+          </div>
+
+          <div class="info-item">
+            <label>Simples Nacional:</label>
+            <mat-chip-set>
+              <mat-chip [color]="credito.simplesNacional ? 'primary' : 'warn'" selected>
+                <mat-icon>{{ credito.simplesNacional ? 'check_circle' : 'cancel' }}</mat-icon>
+                {{ credito.simplesNacional ? 'Sim' : 'Não' }}
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+        </div>
+
+        <mat-divider [vertical]="true" class="vertical-divider"></mat-divider>
+
+        
+        <div class="info-section">
+          <h3 class="section-title">
+            <mat-icon>attach_money</mat-icon>
+            Valores Financeiros
+          </h3>
+
+          <div class="info-item highlight">
+            <label>Valor ISSQN:</label>
+            <span class="value currency-highlight">{{ formatCurrency(credito.valorIssqn) }}</span>
+          </div>
+
+          <div class="info-item">
+            <label>Alíquota:</label>
+            <span class="value">{{ formatPercentage(credito.aliquota) }}</span>
+          </div>
+
+          <div class="info-item">
+            <label>Valor Faturado:</label>
+            <span class="value">{{ formatCurrency(credito.valorFaturado) }}</span>
+          </div>
+
+          <div class="info-item">
+            <label>Valor Dedução:</label>
+            <span class="value deduction">{{ formatCurrency(credito.valorDeducao) }}</span>
+          </div>
+
+          <div class="info-item">
+            <label>Base de Cálculo:</label>
+            <span class="value">{{ formatCurrency(credito.baseCalculo) }}</span>
+          </div>
+        </div>
+      </div>
+
+      <mat-divider class="horizontal-divider"></mat-divider>
+
+      
+      <div class="summary-section">
+        <h3 class="section-title">
+          <mat-icon>summarize</mat-icon>
+          Resumo do Cálculo
+        </h3>
+        <div class="calculation-formula">
+          <span class="formula-text">
+            Base de Cálculo ({{ formatCurrency(credito.baseCalculo) }}) ×
+            Alíquota ({{ formatPercentage(credito.aliquota) }}) =
+            <strong>{{ formatCurrency(credito.valorIssqn) }}</strong>
+          </span>
+        </div>
+      </div>
+      <div class="button-container">
+        <button mat-raised-button color="primary" (click)="onBack()">
+          Voltar
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

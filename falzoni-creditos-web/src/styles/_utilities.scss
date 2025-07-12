@@ -1,0 +1,27 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.text-primary { color: $text-primary; }
+.text-secondary { color: $text-secondary; }
+.text-muted { color: $text-muted; }
+
+.bg-primary { background-color: $background-primary; }
+.bg-secondary { background-color: $background-secondary; }
+
+.p-xs { padding: $padding-xs; }
+.p-sm { padding: $padding-sm; }
+.p-md { padding: $padding-md; }
+.p-lg { padding: $padding-lg; }
+
+.m-xs { margin: $margin-xs; }
+.m-sm { margin: $margin-sm; }
+.m-md { margin: $margin-md; }
+.m-lg { margin: $margin-lg; }
+
+.flex-center { @include flex-center; }
+.flex-column { @include flex-column; }
+
+.card { @include card-shadow; }
+
+.btn-primary { @include button-style($primary-color, #fff); }
+.btn-secondary { @include button-style($background-secondary, $text-primary); }

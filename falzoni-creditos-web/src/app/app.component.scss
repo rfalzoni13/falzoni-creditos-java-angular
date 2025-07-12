@@ -1,0 +1,152 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-primary;
+  background-color: $background-secondary;
+}
+
+mat-toolbar {
+  padding: 0 $padding-sm;
+}
+
+footer {
+  padding: 0 $padding-sm;
+  span {
+    @include font-style($font-size-lg, $font-weight-medium, $text-primary);
+  }
+}
+
+.loading-container {
+  @include container-centered;
+  @include flex-column;
+  gap: $gap-lg;
+  padding: $padding-xxxl;
+
+  mat-progress-spinner {
+    margin: 0 auto;
+  }
+
+  p {
+    @include font-style($font-size-large, $font-weight-medium, $text-secondary);
+    text-align: center;
+  }
+}
+
+.search-result-container {
+  @include container-full-width;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $padding-xl;
+
+  .result-card {
+    @include card-style;
+
+    mat-card-header {
+      margin-bottom: $margin-lg;
+
+      mat-card-title {
+        @include flex-row;
+        align-items: center;
+        gap: $gap-md;
+        @include title-style;
+
+        mat-icon {
+          font-size: $font-size-xxlarge;
+        }
+      }
+    }
+
+    mat-card-content {
+      .search-summary {
+        margin-bottom: $margin-xl;
+        padding: $padding-lg;
+        background-color: $background-light;
+        border-radius: $border-radius-md;
+        border-left: 4px solid $primary-color;
+
+        p {
+          @include font-style($font-size-medium, $font-weight-normal, $text-primary);
+          margin-bottom: $margin-md;
+
+          strong {
+            font-weight: $font-weight-semibold;
+            color: $text-primary;
+          }
+        }
+      }
+
+      .search-results {
+        margin-bottom: $margin-xl;
+
+        h3 {
+          @include font-style($font-size-large, $font-weight-semibold, $text-primary);
+          margin-bottom: $margin-lg;
+          color: $primary-color;
+        }
+
+        .credito-card {
+          margin-bottom: $margin-md;
+          border: 1px solid $border-light;
+          @include elevation(1);
+
+          .credito-info {
+            p {
+              @include font-style($font-size-medium, $font-weight-normal, $text-primary);
+              margin-bottom: $margin-sm;
+              @include flex-row;
+              align-items: center;
+              gap: $gap-sm;
+
+              strong {
+                font-weight: $font-weight-semibold;
+                min-width: 150px;
+              }
+
+              mat-icon {
+                font-size: $font-size-large;
+                width: $font-size-large;
+                height: $font-size-large;
+              }
+            }
+          }
+        }
+      }
+
+      .success-message {
+        margin-top: $margin-lg;
+        text-align: center;
+
+        mat-chip-listbox {
+          mat-chip {
+            font-weight: $font-weight-medium;
+          }
+        }
+      }
+
+      .error-message {
+        color: $error-color;
+        font-weight: $font-weight-medium;
+        text-align: center;
+        padding: $padding-lg;
+        background-color: rgba($error-color, 0.1);
+        border-radius: $border-radius-md;
+        border-left: 4px solid $error-color;
+      }
+    }
+  }
+
+  @include respond-to(md) {
+    padding: $padding-sm;
+
+    .result-card {
+      padding: $padding-lg;
+    }
+  }
+}

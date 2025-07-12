@@ -1,0 +1,32 @@
+{
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4200/",
+      "cascadeTerminateToConfigurations": ["Run Node Command"],
+    },
+    {
+      "name": "Run Node Command",
+      "request": "launch",
+      "type": "node-terminal",
+      "command": "npm start",
+    },
+    {
+      "name": "Run Angular Tests",
+      "request": "launch",
+      "type": "node-terminal",
+      "command": "npm test",
+    },
+  ],
+  "compounds": [
+    {
+      "name": "Run Angular",
+      "configurations": ["Launch Chrome", "Run Node Command"],
+      "stopAll": true
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.container {
+  padding: 0 $padding-xl;
+  .grid-container {
+    @include container-full-width;
+
+    h2 {
+      @include title-style;
+      margin-bottom: $margin-xl;
+    }
+  }
+}
+
+.button-container {
+  float: right;
+  margin-top: $margin-lg;
+}
+
+.full-width-table {
+  width: $width-full;
+  min-width: $min-width-table-large;
+}
+
+.mat-elevation-z8 {
+  @include elevation(8);
+}
+
+.currency-cell {
+  text-align: right;
+  font-weight: $font-weight-medium;
+  font-family: $font-family-monospace;
+}
+
+.percentage-cell {
+  text-align: center;
+  font-weight: $font-weight-medium;
+}
+
+.text-success {
+  color: $success-color;
+}
+
+.text-danger {
+  color: $error-color;
+}
+
+
+@include respond-to(md) {
+  .grid-container {
+    padding: $padding-sm;
+  }
+
+  .full-width-table {
+    min-width: $min-width-table;
+  }
+
+  .mat-elevation-z8 {
+    overflow-x: scroll;
+  }
+}
+
+
+th.mat-header-cell {
+  @include table-header-style;
+}
+
+
+tr.mat-row {
+  @include table-striped;
+  @include table-row-hover;
+}
+
+
+td.mat-cell {
+  @include table-cell-style;
+}
+
+th.mat-header-cell {
+  @include table-header-style;
+}

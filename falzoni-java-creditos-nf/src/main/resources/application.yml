@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: Falzoni Java Creditos NF
+  config:
+    import: optional:file:env
+  profiles:
+    include: dev
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  kafka:
+    bootstrap-servers: host.docker.internal:9092
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+  api-docs:
+    path: /v1/swagger

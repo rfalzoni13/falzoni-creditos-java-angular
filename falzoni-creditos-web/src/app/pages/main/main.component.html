@@ -1,0 +1,5 @@
+<app-search-form *ngIf="creditos.length === 0 && !credito" (searchSubmitted)="onSearchSubmitted($event)"></app-search-form>
+
+<app-grid *ngIf="creditos.length > 0" [creditos]="creditos" (backEmitter)="clearGrid()"></app-grid>
+
+<app-credit-detail *ngIf="credito" [credito]="credito" (backEmitter)="clearCard()"></app-credit-detail>

@@ -1,0 +1,43 @@
+<div class="container">
+  <mat-card class="search-card">
+    <mat-card-header>
+      <mat-card-title>Pesquisa de Créditos</mat-card-title>
+      <mat-card-subtitle>Busque por número de NFSe ou número do crédito</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="form-inline">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="search-form">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Tipo de Busca</mat-label>
+            <mat-select formControlName="searchType" required>
+              <mat-option *ngFor="let option of searchOptions" [value]="option.value">
+                {{ option.viewValue }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="searchForm.get('searchType')?.hasError('required')">
+              Tipo de busca é obrigatório
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Valor da Busca</mat-label>
+            <input matInput formControlName="searchValue" placeholder="Digite o número..." required>
+            <mat-error *ngIf="searchForm.get('searchValue')?.hasError('required')">
+              Valor da busca é obrigatório
+            </mat-error>
+          </mat-form-field>
+
+          <div class="button-container">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!searchForm.valid">
+              Pesquisar
+            </button>
+            <button mat-button type="button" (click)="searchForm.reset()">
+              Limpar
+            </button>
+          </div>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
