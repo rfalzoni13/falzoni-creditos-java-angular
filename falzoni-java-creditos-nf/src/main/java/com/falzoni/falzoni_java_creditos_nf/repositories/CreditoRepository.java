@@ -13,5 +13,5 @@ import java.util.Optional;
 @Repository
 public interface CreditoRepository extends JpaRepository<Credito, Long> {
     HashSet<Credito> findAllByNumeroNfse(String numeroNfse);
-    Optional<Credito> findByNumeroCredito(String numeroNfse);
+    Optional<Credito> findByNumeroCredito(String numeroCredito);
 }
