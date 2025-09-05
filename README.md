@@ -14,7 +14,7 @@ Comando para rodar o Docker Compose:
 
 `docker compose up -d`
 
-O banco de dados utilizado na aplicação é o Postgres na versão 17. O mesmo necessitará de ser executado localmente e também é necessário alterar o arquivo application.yml ou criar um arquivo .env para incluir as chaves de conexão para o banco (lembrando que também é necessário alterar no Dockerfile do projeto da API)
+O banco de dados utilizado na aplicação é o Postgres na versão 17. O pode ser executado localmente, ou pode ser executado pelo Docker Compose e também é necessário criar um arquivo .env à partir de .env.example para incluir as chaves de conexão para o banco (lembrando que também é necessário alterar no Dockerfile do projeto da API)
 
 O projeto segue rigorosamente os padrões SOLID, YIELD, KISS, DRY para um código mais simples, plausível e de fácil manutenção.
 
