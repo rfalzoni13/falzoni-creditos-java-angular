@@ -49,9 +49,9 @@ services:
     ports:
       - 8080:8080
     environment:
-      KAFKA_CLUSTERS_0_NAME: local
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
-      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+      KAFKA_CLUSTERS_0_NAME: ${KAFKA_CLUSTERS_0_NAME}
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: ${KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS}
+      KAFKA_CLUSTERS_0_ZOOKEEPER: ${KAFKA_CLUSTERS_0_ZOOKEEPER}
     networks:
       creditos-network:
         aliases:
@@ -65,9 +65,9 @@ services:
     build: 
       context: ./falzoni-java-creditos-nf
     environment:
-      DATABASE_URL: jdbc:postgresql://postgresql/credito
-      DB_USERNAME: postgres
-      DB_PASSWORD: SaintSeiya013
+      DATABASE_URL: ${DATABASE_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
     ports:
       - 8081:8080
     depends_on:
