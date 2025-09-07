@@ -25,6 +25,7 @@ O projeto Falzoni Créditos segue a seguinte estrutura:
 Os projetos por padrão são executados nas seguintes portas (em ambiente de desenvolvimento):
 - Bitnami/Kafka: Executado na porta 9092
 - Zookeeper: Executado na porta 2181 (uso interno do Kafka)
-- Kafka UI: Execuado na porta 8081
+- Kafka UI: Executado na porta 8081
+- Postgres: Executado na porta 5432
 - API: Executado na porta 8080
 - Web: Executado na porta 3000
